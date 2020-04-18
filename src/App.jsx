@@ -13,6 +13,7 @@ import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import ActionBar from "./components/ActionBar";
 import FoodCarousel from "./components/FoodCarousel";
+import CrossPlatform from "./components/CrossPlatform";
 
 // styles
 const useStyles = makeStyles(() => ({
@@ -30,10 +31,12 @@ const App = () => {
         <BaseLayout>
           <ActionBar />
           <Container className={classes.container} maxWidth="xl">
-            <FoodCarousel />
-            <FoodCarousel />
-            <FoodCarousel />
-            <FoodCarousel />
+            <FoodCarousel title="Special Offers" />
+            <FoodCarousel title="Salad" />
+            <FoodCarousel title="Appetizer" />
+            <FoodCarousel title="Main Course" />
+
+            <CrossPlatform />
           </Container>
         </BaseLayout>
       </ThemeProvider>

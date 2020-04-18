@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 // components
 import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
+import Hidden from "@material-ui/core/Hidden";
 import Searchbar from "../Searchbar";
 import ReceiveOption from "../ReceiveOption";
 import { NAVBAR_HEIGHT } from "../Navbar";
@@ -22,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
     position: "sticky",
     top: NAVBAR_HEIGHT,
     padding: theme.spacing(0, 4),
-    zIndex: 1
+    zIndex: 1,
   },
   divier: {
-    height: "80%"
+    height: "80%",
   },
 }));
 
@@ -34,17 +35,19 @@ const ActionBar = () => {
 
   return (
     <Box className={classes.root}>
-      <Box>
-        <ReceiveOption />
-      </Box>
-      <Divider
-        className={classes.divier}
-        orientation="vertical"
-        variant="middle"
-        
-      />
+      <Hidden smDown>
+        <Box>
+          <ReceiveOption />
+        </Box>
+        <Divider
+          className={classes.divier}
+          orientation="vertical"
+          variant="middle"
+        />
+      </Hidden>
+
       <Box flex={1}>
-        <Searchbar placeholder="Looking for something?"/>
+        <Searchbar placeholder="Looking for something?" />
       </Box>
     </Box>
   );
