@@ -1,6 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 
+// prop-types
+import PropTypes from "prop-types";
+
 // components
 import Box from "@material-ui/core/Box";
 import InputBase from "@material-ui/core/InputBase";
@@ -29,10 +32,10 @@ const useStyles = makeStyles((theme) => {
     },
     inputContainer: {
       flex: 1,
-      padding: theme.spacing(0, 2)
+      padding: theme.spacing(0, 2),
     },
     input: {
-        width: "100%"
+      width: "100%",
     },
     endButton: {
       borderRadius: `0 ${ACTIONBAR_RADIUS} ${ACTIONBAR_RADIUS} 0`,
@@ -41,7 +44,7 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const Searchbar = () => {
+const Searchbar = ({ placeholder }) => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
@@ -57,7 +60,7 @@ const Searchbar = () => {
 
       {/* start input base */}
       <Box className={classes.inputContainer}>
-        <InputBase className={classes.input} />
+        <InputBase placeholder={placeholder} className={classes.input} />
       </Box>
       {/* end input base */}
 
@@ -68,6 +71,10 @@ const Searchbar = () => {
       {/* end end button */}
     </Box>
   );
+};
+
+Searchbar.propTypes = {
+  placeholder: PropTypes.string,
 };
 
 export default Searchbar;

@@ -3,14 +3,15 @@ import { makeStyles } from "@material-ui/styles";
 
 // components
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 import Searchbar from "../Searchbar";
+import ReceiveOption from "../ReceiveOption";
 import { NAVBAR_HEIGHT } from "../Navbar";
 
 export const ACTIONBAR_HEIGHT = 70;
 
 // styles
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: ACTIONBAR_HEIGHT,
     width: "100%",
@@ -20,21 +21,29 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     position: "sticky",
     top: NAVBAR_HEIGHT,
+    padding: theme.spacing(0, 4),
+  },
+  divier: {
+    height: "80%"
   },
 }));
 
 const ActionBar = () => {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
-      <Box flex={1}>
-        <Typography component="span">Delivery</Typography>
-        <Typography component="span"> or </Typography>
-        <Typography component="span">Pickup</Typography>
+      <Box>
+        <ReceiveOption />
       </Box>
-
+      <Divider
+        className={classes.divier}
+        orientation="vertical"
+        variant="middle"
+        
+      />
       <Box flex={1}>
-        <Searchbar />
+        <Searchbar placeholder="Looking for something?"/>
       </Box>
     </Box>
   );
