@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   name: {
     fontSize: 18,
   },
+  content: {
+    flexGrow: 1,
+  },
   category: {
     marginRight: theme.spacing(1),
     cursor: "pointer",
@@ -93,7 +96,7 @@ const FoodCard = ({
           )}
         </Box>
       </CardActionArea>
-      <CardContent>
+      <CardContent className={classes.content}>
         <Typography className={classes.name}>{name}</Typography>
         {getCategoryRender()}
 
@@ -123,7 +126,6 @@ const FoodCard = ({
           )}
         </Box>
       </CardContent>
-      <CardActions></CardActions>
     </Card>
   );
 };

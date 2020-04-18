@@ -20,23 +20,27 @@ const useStyles = makeStyles(() => ({
     whiteSpace: "nowrap",
     transition: "transform 0.75s ease-in-out",
   },
-  nextButton: {
+  nextButtonContainer: {
     position: "absolute",
     top: "50%",
     right: 10,
     transform: "translateY(-50%)",
     zIndex: 1,
+  },
+  nextButton: {
     minWidth: "auto",
     width: 42,
     height: 42,
     borderRadius: "50%",
   },
-  prevButton: {
+  prevButtonContainer: {
     position: "absolute",
     top: "50%",
     left: 10,
     transform: "translateY(-50%)",
     zIndex: 1,
+  },
+  prevButton: {
     minWidth: "auto",
     width: 42,
     height: 42,
@@ -103,16 +107,18 @@ const Carousel = ({
       onMouseLeave={handleOnMouseExit}
     >
       {currentPage < Math.floor(itemCount / itemsToShow) && (
-        <Zoom in={showButtons}>
-          <Button
-            className={classes.nextButton}
-            variant="contained"
-            color="primary"
-            onClick={onNextClick}
-          >
-            <PrevArrowIcon />
-          </Button>
-        </Zoom>
+        <Box className={classes.nextButtonContainer}>
+          <Zoom in={showButtons}>
+            <Button
+              className={classes.nextButton}
+              variant="contained"
+              color="primary"
+              onClick={onNextClick}
+            >
+              <PrevArrowIcon />
+            </Button>
+          </Zoom>
+        </Box>
       )}
 
       <Box
@@ -131,16 +137,18 @@ const Carousel = ({
       </Box>
 
       {currentPage > 0 && (
-        <Zoom in={showButtons}>
-          <Button
-            className={classes.prevButton}
-            variant="contained"
-            color="primary"
-            onClick={onPrevClick}
-          >
-            <NextArrowIcon />
-          </Button>
-        </Zoom>
+        <Box className={classes.prevButtonContainer}>
+          <Zoom in={showButtons}>
+            <Button
+              className={classes.prevButton}
+              variant="contained"
+              color="primary"
+              onClick={onPrevClick}
+            >
+              <NextArrowIcon />
+            </Button>
+          </Zoom>
+        </Box>
       )}
     </Box>
   );
