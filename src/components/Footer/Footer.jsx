@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     color: "#fff",
     width: "100%",
-    marginTop: theme.spacing(4),
     display: "flex",
     position: "relative",
     zIndex: 1,
@@ -157,11 +156,11 @@ const Footer = () => {
   return (
     <Grid container component="footer" className={classes.root}>
       {/* top svg image */}
-      <Box className={classes.topImage}>
+      {/* <Box className={classes.topImage}>
         <Box>
           <TopImg />
         </Box>
-      </Box>
+      </Box> */}
       {/* /top svg image */}
 
       {/* top menu */}

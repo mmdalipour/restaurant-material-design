@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     position: "sticky",
     top: NAVBAR_HEIGHT,
     padding: theme.spacing(0, 4),
+    zIndex: 1
   },
   divier: {
     height: "80%"
