@@ -8,7 +8,7 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 
 // icons
-import { ReactComponent as TopImg } from "../../assets/images/footer.svg";
+// import { ReactComponent as TopImg } from "../../assets/images/footer.svg";
 import { ReactComponent as AppleIcon } from "../../assets/images/app-store.svg";
 import { ReactComponent as GoogleIcon } from "../../assets/images/google-play.svg";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     zIndex: 1,
     flexDirection: "column",
+    paddingTop: 40,
     "& a": {
       color: "#a5a5a5",
       transition: "color .5s",
