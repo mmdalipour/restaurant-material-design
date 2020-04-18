@@ -8,6 +8,6 @@ export default createPalette({
     main: "#000",
   },
   background: {
-    default: "white",
+    default: "black",
   },
 });

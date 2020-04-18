@@ -9,7 +9,8 @@ import Hero, { HERO_HEIGHT } from "../../components/Hero";
 // styles
 const useStyles = makeStyles((theme) => ({
     content: {
-        background: theme.palette.background.default,   
+        background: "white",   
+        position: "relative"
     }
 }));
 

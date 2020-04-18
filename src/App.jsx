@@ -11,7 +11,7 @@ import BaseLayout from "./layouts/BaseLayout";
 // components
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
-import Navbar from "./components/Navbar";
+import ActionBar from "./components/ActionBar";
 
 const App = () => {
   return (
@@ -19,7 +19,8 @@ const App = () => {
       <ThemeProvider theme={defaultTheme}>
         <CssBaseline />
         <BaseLayout>
-          <h1>hello</h1>
+          <ActionBar />
+          <h1>helleheheh</h1>
         </BaseLayout>
       </ThemeProvider>
     </Box>
