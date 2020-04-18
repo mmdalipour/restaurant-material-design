@@ -1,6 +1,9 @@
 import React from "react";
 import { ThemeProvider, makeStyles } from "@material-ui/styles";
 
+// assets
+import SushiImage from "./assets/images/sushi.jpg";
+
 // themes
 import defaultTheme from "./themes/default";
 
@@ -26,6 +29,58 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const items = [
+  {
+    image: SushiImage,
+    name: "Salmon Red Caviar Sushi",
+    category: ["Sushi", "Japanese", "Main Course"],
+    time: { min: 4, max: 6 },
+    price: 4.25,
+  },
+  {
+    image: SushiImage,
+    name: "Salmon Red Caviar Sushi",
+    category: ["Sushi", "Japanese", "Main Course"],
+    time: { min: 4, max: 6 },
+    price: 4.25,
+  },
+  {
+    image: SushiImage,
+    name: "Salmon Red Caviar Sushi",
+    category: ["Sushi", "Japanese", "Main Course"],
+    time: { min: 4, max: 6 },
+    price: 4.25,
+  },
+  {
+    image: SushiImage,
+    name: "Salmon Red Caviar Sushi",
+    category: ["Sushi", "Japanese", "Main Course"],
+    time: { min: 4, max: 6 },
+    price: 4.25,
+  },
+  {
+    image: SushiImage,
+    name: "Salmon Red Caviar Sushi",
+    category: ["Sushi", "Japanese", "Main Course"],
+    time: { min: 4, max: 6 },
+    price: 4.25,
+  },
+  {
+    image: SushiImage,
+    name: "Salmon Red Caviar Sushi",
+    category: ["Sushi", "Japanese", "Main Course"],
+    time: { min: 4, max: 6 },
+    price: 4.25,
+  },
+  {
+    image: SushiImage,
+    name: "Salmon Red Caviar Sushi",
+    category: ["Sushi", "Japanese", "Main Course"],
+    time: { min: 4, max: 6 },
+    price: 4.25,
+  },
+];
+
 const App = () => {
   const classes = useStyles();
   return (
@@ -35,16 +90,16 @@ const App = () => {
         <BaseLayout>
           <ActionBar />
           <Container className={classes.container} maxWidth="xl">
-            <FoodCarousel title="Special Offers" />
-            <FoodCarousel title="Salad" />
-            <FoodCarousel title="Appetizer" />
-            <FoodCarousel title="Main Course" />
+            <FoodCarousel title="Special Offers" items={items} />
+            <FoodCarousel title="Salad" items={items} />
+            <FoodCarousel title="Appetizer" items={items} />
+            <FoodCarousel title="Main Course" items={items} />
 
             <Section>
               <CrossPlatform />
             </Section>
 
-            <FoodCarousel title="American" />
+            <FoodCarousel title="American" items={items} />
 
             <Section>
               <GiftCard />

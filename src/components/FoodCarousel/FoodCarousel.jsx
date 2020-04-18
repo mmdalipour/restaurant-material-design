@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 
-// assets
-import SushiImage from "../../assets/images/sushi.jpg";
 
 // components
 import Box from "@material-ui/core/Box";
@@ -14,59 +12,7 @@ import CarouselBar from "../CarouselBar";
 // styles
 const useStyles = makeStyles(() => ({}));
 
-const items = [
-  {
-    image: SushiImage,
-    name: "Salmon Red Caviar Sushi",
-    category: ["Sushi", "Japanese", "Main Course"],
-    time: { min: 4, max: 6 },
-    price: 4.25,
-  },
-  {
-    image: SushiImage,
-    name: "Salmon Red Caviar Sushi",
-    category: ["Sushi", "Japanese", "Main Course"],
-    time: { min: 4, max: 6 },
-    price: 4.25,
-  },
-  {
-    image: SushiImage,
-    name: "Salmon Red Caviar Sushi",
-    category: ["Sushi", "Japanese", "Main Course"],
-    time: { min: 4, max: 6 },
-    price: 4.25,
-  },
-  {
-    image: SushiImage,
-    name: "Salmon Red Caviar Sushi",
-    category: ["Sushi", "Japanese", "Main Course"],
-    time: { min: 4, max: 6 },
-    price: 4.25,
-  },
-  {
-    image: SushiImage,
-    name: "Salmon Red Caviar Sushi",
-    category: ["Sushi", "Japanese", "Main Course"],
-    time: { min: 4, max: 6 },
-    price: 4.25,
-  },
-  {
-    image: SushiImage,
-    name: "Salmon Red Caviar Sushi",
-    category: ["Sushi", "Japanese", "Main Course"],
-    time: { min: 4, max: 6 },
-    price: 4.25,
-  },
-  {
-    image: SushiImage,
-    name: "Salmon Red Caviar Sushi",
-    category: ["Sushi", "Japanese", "Main Course"],
-    time: { min: 4, max: 6 },
-    price: 4.25,
-  },
-];
-
-const FoodCarousel = ({ title = "food" }) => {
+const FoodCarousel = ({ title = "food", items = [] }) => {
   const classes = useStyles();
 
   const [page, setPage] = useState(0);
