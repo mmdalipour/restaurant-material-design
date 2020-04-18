@@ -25,7 +25,10 @@ import GiftCard from "./components/GiftCard";
 
 // styles
 const useStyles = makeStyles((theme) => ({
-  container: {},
+  container: {
+    paddingTop: "2rem",
+    paddingBottom: "2rem"
+  },
 }));
 
 const items = [
