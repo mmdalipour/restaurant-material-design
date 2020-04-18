@@ -31,6 +31,9 @@ const App = () => {
           <ActionBar />
           <Container className={classes.container} maxWidth="xl">
             <FoodCarousel />
+            <FoodCarousel />
+            <FoodCarousel />
+            <FoodCarousel />
           </Container>
         </BaseLayout>
       </ThemeProvider>

@@ -8,25 +8,38 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#d7d7d7",
-    overflow: "hidden"
+    overflow: "hidden",
   },
   cursor: {
     backgroundColor: theme.palette.secondary.main,
-    transition: "0.3s ease-in-out",
-    transform: "translate(-50%)"
+    transition: "0.75s ease-in-out",
   },
 }));
 
 const CarouselBar = ({ pageCount, currentPage }) => {
   const classes = useStyles();
-  console.error(pageCount);
-  console.error(currentPage);
   const per = (currentPage * 100) / pageCount;
+
+  const getTransform = () => {
+    switch (currentPage) {
+      case 0:
+        return 0;
+      case pageCount:
+        return 100;
+      default:
+        return 50;
+    }
+  };
+
+  const cursorStyle = {
+    left: `calc(${per}%)`,
+    transform: `translate(-${getTransform()}%)`,
+  };
   return (
     <Box className={classes.root} width="100%" position="relative" height={2}>
       <Box
         position="absolute"
-        style={{ left: `calc(${per}%)`}}
+        style={cursorStyle}
         className={classes.cursor}
         height={2}
         width={64}

@@ -1,4 +1,4 @@
-import React, { useRef, useState, Children } from "react";
+import React, { useRef, useState, Children, useEffect } from "react";
 import { makeStyles } from "@material-ui/styles";
 import clsx from "clsx";
 
@@ -58,6 +58,7 @@ const Carousel = ({
   const classes = useStyles();
 
   const [showButtons, setShowButtons] = useState(false);
+  const [itemCount, setItemCount] = useState(false);
 
   const containerRef = useRef();
   const viewportRef = useRef();
@@ -70,15 +71,16 @@ const Carousel = ({
     setShowButtons(false);
   };
 
+  useEffect(() => {
+    setItemCount(Children.toArray(children).length);
+  }, []);
+
   const viewportStyle = {
     transform: `translateX(-${currentPage * 100}%)`,
   };
   const itemStyle = {
     width: `calc(100% / ${itemsToShow})`,
     minWidth: `calc(100% / ${itemsToShow})`,
-    "&:hover": {
-      transform: "scale(2)",
-    },
   };
   return (
     <Box
@@ -90,16 +92,18 @@ const Carousel = ({
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseExit}
     >
-      <Zoom in={showButtons}>
-        <Button
-          className={classes.nextButton}
-          variant="contained"
-          color="primary"
-          onClick={onNextClick}
-        >
-          <PrevArrowIcon />
-        </Button>
-      </Zoom>
+      {currentPage < Math.floor(itemCount / itemsToShow) && (
+        <Zoom in={showButtons}>
+          <Button
+            className={classes.nextButton}
+            variant="contained"
+            color="primary"
+            onClick={onNextClick}
+          >
+            <PrevArrowIcon />
+          </Button>
+        </Zoom>
+      )}
 
       <Box
         ref={viewportRef}
@@ -116,16 +120,18 @@ const Carousel = ({
         ))}
       </Box>
 
-      <Zoom in={showButtons}>
-        <Button
-          className={classes.prevButton}
-          variant="contained"
-          color="primary"
-          onClick={onPrevClick}
-        >
-          <NextArrowIcon />
-        </Button>
-      </Zoom>
+      {currentPage > 0 && (
+        <Zoom in={showButtons}>
+          <Button
+            className={classes.prevButton}
+            variant="contained"
+            color="primary"
+            onClick={onPrevClick}
+          >
+            <NextArrowIcon />
+          </Button>
+        </Zoom>
+      )}
     </Box>
   );
 };

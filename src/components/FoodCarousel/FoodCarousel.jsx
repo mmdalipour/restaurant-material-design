@@ -6,6 +6,7 @@ import SushiImage from "../../assets/images/sushi.jpg";
 
 // components
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import Carousel from "../Carousel";
 import FoodCard from "../FoodCard";
 import CarouselBar from "../CarouselBar";
@@ -65,7 +66,7 @@ const items = [
   },
 ];
 
-const FoodCarousel = () => {
+const FoodCarousel = ({ title = "food" }) => {
   const classes = useStyles();
 
   const [page, setPage] = useState(0);
@@ -79,7 +80,10 @@ const FoodCarousel = () => {
   };
   return (
     <Box display="flex" flexDirection="column">
-      <Box width="100%" marginBottom="3rem">
+      <Typography variant="h5" gutterBottom>
+        {title}
+      </Typography>
+      <Box width="100%" marginBottom="1rem">
         <CarouselBar
           currentPage={page}
           pageCount={Math.floor(items.length / 3)}
