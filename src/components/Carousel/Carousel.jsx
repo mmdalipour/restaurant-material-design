@@ -1,15 +1,11 @@
 import React, { useRef, useState, Children, useEffect } from "react";
-import { makeStyles } from "@material-ui/styles";
-import clsx from "clsx";
-
-// hooks
-import useWidth from "../../hooks/useWidth";
+import { makeStyles, useTheme } from "@material-ui/styles";
 
 // components
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Zoom from "@material-ui/core/Zoom";
-import {} from "@material-ui/core/useMediaQuery";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 // icons
 import PrevArrowIcon from "@material-ui/icons/ArrowForward";
@@ -54,8 +50,14 @@ const Carousel = ({
   onPrevClick,
   children,
   itemsToShow = 3,
+  itemsToShowMd = 2,
+  itemsToShowSm = 1,
 }) => {
   const classes = useStyles();
+  const theme = useTheme();
+
+  const md = useMediaQuery(theme.breakpoints.down("md"));
+  const sm = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [showButtons, setShowButtons] = useState(false);
   const [itemCount, setItemCount] = useState(false);
@@ -75,12 +77,20 @@ const Carousel = ({
     setItemCount(Children.toArray(children).length);
   }, []);
 
+  const getItemToShow = () => {
+    if (!md && !sm) return itemsToShow;
+    else if (md && !sm) return itemsToShowMd;
+    else return itemsToShowSm;
+  };
+
   const viewportStyle = {
     transform: `translateX(-${currentPage * 100}%)`,
   };
+
+  const res = getItemToShow();
   const itemStyle = {
-    width: `calc(100% / ${itemsToShow})`,
-    minWidth: `calc(100% / ${itemsToShow})`,
+    width: `calc(100% / ${res})`,
+    minWidth: `calc(100% / ${res})`,
   };
   return (
     <Box
