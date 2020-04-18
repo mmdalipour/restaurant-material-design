@@ -5,8 +5,6 @@ import { makeStyles } from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import Typography from "@material-ui/core/Typography";
 
 // icons
@@ -64,13 +62,25 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     marginLeft: 150,
     marginRight: 150,
-    marginBottom: 30
+    marginBottom: 30,
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      marginLeft: 100,
+      marginRight: 100
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 25,
+      marginRight: 25
+    }
   },
   appIcons: {
     "& > a": {
       display: "inline-block",
       width: 150,
       margin: "0 .25rem",
+      [theme.breakpoints.down("sm")]: {
+        width: 120
+      },
       "& svg": {
         width: "100%",
         height: "100%"
@@ -81,6 +91,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     paddingTop: 0,
     paddingBottom: 0,
+    flexWrap: "wrap",
+    justifyContent: "center",
     "& a": {
       borderBottom: "2px solid transparent",
       transition: "all .5s",
@@ -95,18 +107,37 @@ const useStyles = makeStyles((theme) => ({
   middleMenu: {
     paddingRight: 150,
     paddingLeft: 150,
+    [theme.breakpoints.down("md")]: {
+      paddingRight: 100,
+      paddingLeft: 100
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingRight: 25,
+      paddingLeft: 25
+    },
     "& > div": {
       textAlign: "left",
       marginBottom: 20,
       display: "flex",
-      flexDirection: "column"
+      flexDirection: "column",
+      [theme.breakpoints.down("md")]: {
+        textAlign: "center"
+      }
     }
   },
   bottomMenu: {
     marginRight: 150,
     marginLeft: 150,
     borderTop: "1px solid rgba(255,255,255, .4)",
-    paddingTop: 40
+    paddingTop: 40,
+    [theme.breakpoints.down("md")]: {
+      marginRight: 100,
+      marginLeft: 100
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginRight: 25,
+      marginLeft: 25
+    }
   },
   bottomLinks: {
     paddingTop: 40,
@@ -147,55 +178,43 @@ const Footer = () => {
             <GoogleIcon />
           </Link>
         </Box>
-        <List className={classes.topMenuList}>
-          <ListItem component={Link} href="##">
-            About
-          </ListItem>
-          <ListItem component={Link} href="##">
-            Services
-          </ListItem>
-          <ListItem component={Link} href="##">
-            Support
-          </ListItem>
-          <ListItem component={Link} href="##">
-            Gallery
-          </ListItem>
-          <ListItem component={Link} href="##">
-            Terms
-          </ListItem>
-          <ListItem component={Link} href="##">
-            Locations
-          </ListItem>
-        </List>
+        <Box className={classes.topMenuList}>
+          <Link href="##">About</Link>
+          <Link href="##">Services</Link>
+          <Link href="##">Support</Link>
+          <Link href="##">Gallery</Link>
+          <Link href="##">Terms</Link>
+          <Link href="##">Locations</Link>
+        </Box>
       </Box>
       {/* /top menu */}
 
       {/* middle menu */}
       <Grid container className={classes.middleMenu}>
-        <Grid item lg={3} md={4} sm={6}>
+        <Grid item lg={3} md={6} sm={6} xs={12}>
           <Typography variant="h5" component="span">
             LOGO
           </Typography>
         </Grid>
-        <Grid item lg={3} md={4} sm={6}>
+        <Grid item lg={3} md={6} sm={6} xs={12}>
           <Typography variant="h6">Main Menu</Typography>
           <Link href="##">Pickup</Link>
         </Grid>
-        <Grid item lg={3} md={4} sm={6}>
+        <Grid item lg={3} md={6} sm={6} xs={12}>
           <Typography variant="h6">Orders</Typography>
           <Link href="##">Upcoming Orders</Link>
           <Link href="##">Recent Orders</Link>
         </Grid>
-        <Grid item lg={3} md={4} sm={6}>
+        <Grid item lg={3} md={6} sm={6} xs={12}>
           <Typography variant="h6">Reservation</Typography>
           <Link href="##">Recent Reservation</Link>
         </Grid>
-        <Grid item lg={3} md={4} sm={6}>
+        <Grid item lg={3} md={6} sm={6} xs={12}>
           <Typography variant="h6">Profile</Typography>
           <Link href="##">Promos & Credits</Link>
           <Link href="##">Rewards</Link>
         </Grid>
-        <Grid item lg={3} md={4} sm={6}>
+        <Grid item lg={3} md={6} sm={6} xs={12}>
           <Typography variant="h6">Support</Typography>
           <Link href="##">Contact Us</Link>
           <Link href="##">Live Chat</Link>
