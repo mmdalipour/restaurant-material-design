@@ -8,14 +8,14 @@ import Divider from "@material-ui/core/Divider";
 // styles
 const useStyles = makeStyles((theme) => ({
   divider: {
-    marginBottom: theme.spacing(4),
+    margin: theme.spacing(4,0),
   },
 }));
 
 const Section = ({ children }) => {
   const classes = useStyles();
   return (
-    <Box width="100%">
+    <Box width="100%" marginY="4remp">
       <Divider className={classes.divider} variant="fullWidth" />
       {children}
     </Box>
