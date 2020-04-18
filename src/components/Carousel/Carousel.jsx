@@ -98,7 +98,7 @@ const Carousel = ({
       position="relative"
       width="100%"
       overflow="hidden"
-      paddingRight="2rem"
+      paddingRight={`calc(100% / ${res} / 4)`}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseExit}
     >

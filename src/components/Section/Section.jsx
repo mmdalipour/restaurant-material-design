@@ -6,13 +6,17 @@ import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
 
 // styles
-const useStyles = makeStyles(() => ({}));
+const useStyles = makeStyles((theme) => ({
+  divider: {
+    marginBottom: theme.spacing(4),
+  },
+}));
 
 const Section = ({ children }) => {
   const classes = useStyles();
   return (
     <Box width="100%">
-      <Divider variant="middle" />
+      <Divider className={classes.divider} variant="fullWidth" />
       {children}
     </Box>
   );

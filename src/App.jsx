@@ -14,6 +14,7 @@ import Container from "@material-ui/core/Container";
 import ActionBar from "./components/ActionBar";
 import FoodCarousel from "./components/FoodCarousel";
 import CrossPlatform from "./components/CrossPlatform";
+import Section from "./components/Section";
 
 // styles
 const useStyles = makeStyles(() => ({
@@ -36,7 +37,11 @@ const App = () => {
             <FoodCarousel title="Appetizer" />
             <FoodCarousel title="Main Course" />
 
-            <CrossPlatform />
+            <Section>
+              <CrossPlatform />
+            </Section>
+
+            <FoodCarousel title="American" />
           </Container>
         </BaseLayout>
       </ThemeProvider>

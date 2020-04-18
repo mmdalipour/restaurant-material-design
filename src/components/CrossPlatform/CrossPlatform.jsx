@@ -18,28 +18,36 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "flex-end",
   },
+  image: {
+    width: "100%",
+    objectFit: "scale-down",
+  },
 }));
 
 const CrossPlatform = () => {
   const classes = useStyles();
   return (
-    <Grid container alignItems="center" justifyContent="center">
-      <Hidden smDown>
+    <Grid container alignItems="center" justify="center">
+      <Hidden xsDown>
         <Grid className={classes.leftSection} item sm={4}>
           <img src={IOSImage} alt="ios mobile" />
         </Grid>
       </Hidden>
-      <Grid item sm={4}>
+      <Grid item xs={12} sm={4}>
         <Box>
-          <Hidden mdUp>
-            <img src={FullOsImage} alt="cross platform mobile" />
+          <Hidden smUp>
+            <img
+              className={classes.image}
+              src={FullOsImage}
+              alt="cross platform mobile"
+            />
           </Hidden>
           <Typography align="center">Hello</Typography>
         </Box>
       </Grid>
 
       <Grid item sm={4}>
-        <Hidden smDown>
+        <Hidden xsDown>
           <img src={AndroidImage} alt="android mobile" />
         </Hidden>
       </Grid>
